@@ -13,4 +13,16 @@ export class UserService {
 
     return user;
   }
+  async getAll() {
+    const userRepository = getCustomRepository(UserRepository);
+    const users = await userRepository.find();
+
+    return users;
+  }
+  async getUser(id: string) {
+    const userRepository = getCustomRepository(UserRepository);
+    const user = await userRepository.findOne(id);
+
+    return user;
+  }
 }
