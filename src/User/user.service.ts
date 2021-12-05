@@ -25,4 +25,27 @@ export class UserService {
 
     return user;
   }
+
+  async updateUser(id: string, { username, email, password }: IUserRequest) {
+    const userRepository = getCustomRepository(UserRepository);
+    const user = await userRepository.findOne(id);
+
+    if (user) {
+      userRepository.merge(user, {
+        username,
+        email,
+        password,
+      });
+      const uptadedUser = await userRepository.save(user);
+
+      return uptadedUser;
+    }
+
+    throw new Error("User not found");
+  }
+
+  async deleteUser(id: string): Promise<void> {
+    const userRepository = getCustomRepository(UserRepository);
+    await userRepository.delete(id);
+  }
 }
