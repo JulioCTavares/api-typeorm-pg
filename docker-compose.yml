@@ -1,0 +1,12 @@
+version: "3.7"
+services:
+    database-pg:
+      image: postgres
+      environment:
+        POSTGRES_PASSWORD: docker
+        POSTGRES_USER: docker
+        POSTGRES_DB: pg-teste
+      volumes: 
+        - /pgdata:/var/lib/postgressql/data
+      ports:
+        - '5432:5432'
