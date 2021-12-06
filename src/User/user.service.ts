@@ -49,11 +49,13 @@ export class UserService {
     const userRepository = getCustomRepository(UserRepository);
     const user = await userRepository.findOne(id);
 
+    const passwordHash = await hash(password, 8);
+
     if (user) {
       userRepository.merge(user, {
         username,
         email,
-        password,
+        password: passwordHash,
       });
       const uptadedUser = await userRepository.save(user);
 
