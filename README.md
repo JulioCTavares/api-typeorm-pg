@@ -2,6 +2,8 @@
 
 <hr>
 
+<h2>API para gerenciamento de usuarios</h2>
+
 <h4>API REST de usuarios utilizandos os verbos HTTP: </h4>
 <ul>
   <li> GET</li> 
@@ -10,9 +12,12 @@
   <li> DELETE</li> 
  </ul>
 
-Para instalar as dependências do Projeto é necessário o ```yarn```
+<h4> Foi utilizando no projeto NodeJS, Express, Typescript, TypeORM, Docker e PostgreSQL</h4>
 
-comando para instalação, após o clone do Projeto
+Para utilizar a API, requer o Docker e Docker-Compose instalados no seu PC.
+
+Comando para iniciar a aplicação
+
 ```sh
-yarn
+docker-compose up -d
 ```
