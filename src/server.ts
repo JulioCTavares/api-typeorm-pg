@@ -1,11 +1,10 @@
 import express from "express";
 import "reflect-metadata";
-import { createConnection } from "typeorm";
+import "./database";
 
 import routes from "./routes";
 
 const server = express();
-createConnection();
 const PORT = process.env.PORT || 3333;
 
 server.use(express.json());
